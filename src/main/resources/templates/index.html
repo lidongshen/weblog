@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>离线数仓分析平台</title>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/echarts.js"></script>
+<script type="text/javascript" src="js/ecStat.js"></script>
+<link rel="stylesheet" href="css/comon0.css">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div style="background:#000d4a url(images/bg.jpg) center top;">
+  <div class="back"></div>
+  <div class="head">
+    <h1>离线数仓分析平台</h1>
+    <div class="weather"><span id="showTime"></span></div>
+	    </div>
+    <script>
+var t = null;
+    t = setTimeout(time,1000);//開始运行
+    function time()
+    {
+       clearTimeout(t);//清除定时器
+       dt = new Date();
+		var y=dt.getFullYear();
+		var mt=dt.getMonth()+1;
+		var day=dt.getDate();
+       var h=dt.getHours();//获取时
+       var m=dt.getMinutes();//获取分
+       var s=dt.getSeconds();//获取秒
+       document.getElementById("showTime").innerHTML = y+"年"+mt+"月"+day+"日"+h+"时"+m+"分"+s+"秒";
+       t = setTimeout(time,1000); //设定定时器，循环运行     
+    } 
+</script> 
+  <div class="mainbox" style="width: 100%;height:1000px;">
+      <div id="hourpv"></div>
+      <div id="daypv"></div>
+      <div id="agentpv"></div>
+
+  </div>
+</div>
+<script src="js/hourpv.js"></script>
+<script src="js/daypv.js"></script>
+<script src="js/agentpv.js"></script>
+
+</body>
+</html>
